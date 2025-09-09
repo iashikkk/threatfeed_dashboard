@@ -1,0 +1,206 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --accent: #2563eb;
+  --border: #ddd;
+}
+
+.dark {
+  --bg: #0b1220;
+  --card: #1a1a2e;
+  --text: #e6eef8;
+  --accent: #60a5fa;
+  --border: #333;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* Header */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.topbar h1 {
+  margin: 0;
+}
+.topbar button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.topbar button:hover {
+  background: #1e40af;
+}
+
+/* Layout */
+.main {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+.sidebar {
+  flex: 1;
+  min-width: 280px;
+}
+.content {
+  flex: 2;
+  min-width: 320px;
+}
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Table */
+.table-wrapper {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+tr:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pagination button:hover:not(:disabled) {
+  background: #1e40af;
+}
+.pagination button:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
+
+/* Settings Panel */
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 100;
+}
+.settings-panel.open {
+  right: 0;
+}
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+}
+.settings-body {
+  padding: 15px;
+}
+.setting-option {
+  margin-bottom: 15px;
+}
+
+/* Search bar */
+.search-bar {
+  margin-bottom: 12px;
+}
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+/* Trend Modal */
+.modal-overlay {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+.modal {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Zig-Zag Trend effect */
+.recharts-line-curve {
+  stroke-width: 3 !important;
+}
+.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+}
+.recharts-tooltip-wrapper {
+  font-size: 12px;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+  .sidebar, .content {
+    min-width: 100%;
+  }
+}
